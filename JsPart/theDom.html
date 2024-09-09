@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red-square{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .addedClass{
+            color: aqua;
+            width: 200px;
+            height: 300px;
+            background-color: #123;
+            margin-bottom: 20px;
+        }
+    </style>
+   
+</head>
+<body>
+    <div class="red-square">sddsf</div>
+
+    <div class="change"></div>
+    <div class="change"></div>
+    <div class="element3 ">this item won't be changed
+    </div>
+    <div class="change"></div>
+    <h1>this is rafa houssam</h1>
+    <code><code>print("rafa houssam")</code></code>
+    
+</body>
+<script>
+    NumberOfElements=document.querySelectorAll(".change");
+    for(let i=0;i<NumberOfElements.length;i++){
+     NumberOfElements[i].innerText="Modified by JS";
+     NumberOfElements[i].classList.add("addedClass")
+    }
+    NewContent=document.querySelector("h1");
+    NewContent.innerHTML="<em>this is the new houssam rafa </em>";
+
+ </script>
+</html>

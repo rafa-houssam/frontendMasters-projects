@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red-square{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <input type="text" placeholder="enter your text here" class="rafa">
+    <p class="houssam">nothing is changed yet</p>
+    <input type="text" placeholder="enter your text here" class="rafa1">
+    <div class="red-square"></div>
+
+
+    
+</body>
+<script>
+    input=document.querySelector("input.rafa");
+    paragraph=document.querySelector("p.houssam");
+    input.addEventListener("keyup",function(){
+        paragraph.innerText=input.value;
+    })
+    input=document.querySelector("input.rafa1");
+    paragraph=document.querySelector(".red-square");
+    input.addEventListener("change",function(){
+        paragraph.style.backgroundColor=input.value;
+        
+    })
+
+</script>
+</html>

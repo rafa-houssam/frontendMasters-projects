@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    
+    <style>
+        *{
+            font-size: larger;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        div{
+            margin: 1px;
+            border: none;
+        }
+        .whole-calculator{
+            margin: auto auto;
+            width: 50%;
+            background-color: #b4abab;
+            height: 500px;
+            display: grid;
+            grid-template-areas:
+            "result result result result"
+            " para para para para"
+            "   c      c   arrow devision"
+            "seven eight nine mult"
+            "four five six minus"
+            "one two three plus"
+            "zero1 zero1 zero1 equal"
+        }
+        .black{
+           align-content: center;
+            background-color: #000000;
+            grid-area: result;
+            color: white;
+
+        }
+        .c{
+            background-color: #e8e2e2;
+            grid-area: c;
+            color: rgba(15, 13, 13, 0.794);
+            text-align: center;
+
+        }
+        .arrow{
+            background-color: #e8e2e2;
+            grid-area: arrow;
+            color: rgba(15, 13, 13, 0.794);
+
+        }
+        .devision{
+            background-color: #e8e2e2;
+            grid-area: devision;
+            color: rgba(15, 13, 13, 0.794);
+
+        }
+        .seven{
+            background-color: #e8e2e2;
+            grid-area: seven;
+            color: rgba(15, 13, 13, 0.794);
+
+        }
+        .eight{
+            background-color: #e8e2e2;
+            grid-area: eight;
+            color: rgba(15, 13, 13, 0.794);
+        }
+        .nine{
+            background-color: #e8e2e2;
+            grid-area: nine;
+            color: rgba(15, 13, 13, 0.794);
+
+        }
+        .mult{
+            background-color: #e8e2e2;
+            grid-area: mult;
+            color: rgba(15, 13, 13, 0.794);
+
+        }
+        .four{
+            background-color: #e8e2e2;
+            grid-area: four;
+            color: rgba(15, 13, 13, 0.794);
+
+        }
+        .five{
+            background-color: #e8e2e2;
+            grid-area: five;
+            color: rgba(15, 13, 13, 0.794);
+
+        }
+        .six{
+            background-color: #e8e2e2;
+            grid-area: six;
+            color: rgba(15, 13, 13, 0.794);
+
+        }
+        .minus{
+            background-color: #e8e2e2;
+            grid-area: minus;
+            color: rgba(15, 13, 13, 0.794);
+
+        }
+        .one{
+            background-color: #e8e2e2;
+            grid-area: one;
+            color: rgba(15, 13, 13, 0.794);
+
+        }
+        .two{
+            background-color: #e8e2e2;
+            grid-area: two;
+            color: rgba(15, 13, 13, 0.794);
+
+        }
+        .three{
+            background-color: #e8e2e2;
+            grid-area: three;
+            color: rgba(15, 13, 13, 0.794);
+
+        }
+        .plus{
+            background-color: #e8e2e2;
+            grid-area: plus;
+            color: rgba(15, 13, 13, 0.794);
+
+        }
+        .zero1{
+            background-color: #e8e2e2;
+            grid-area: zero1;
+            color: rgba(15, 13, 13, 0.794);
+
+        }
+        .equal{
+            background-color: #e8e2e2;
+            grid-area: equal;
+            color: rgba(15, 13, 13, 0.794);
+
+        }
+        button{
+            width: 100%;
+            height: 100%;
+            background-color: #ebe5e580;
+            border: none;
+        }
+        button:hover{
+            background-color: #a19d9d;
+        }
+        div:nth-child(9){
+            background-color: #f66606;
+
+        }
+        div:nth-child(13){
+            background-color: #f66606;
+
+        }
+        div:nth-child(17){
+            background-color: #f66606;
+
+        }
+        div:nth-child(19){
+            background-color: #f66606;
+
+        }
+        div:nth-child(5){
+            background-color: #f66606;
+
+        }
+        .black{
+            text-align: right;
+            
+        }
+        p{
+           text-align: right;
+            font-size: 13px;
+            font-weight: lighter;
+            color: white;
+            background-color: black;
+            grid-area: para;
+            margin: 0px;
+            
+           
+        }
+
+    </style>
+    
+</head>
+<body>
+    <h1>          a simple and basic calculator:</h1>
+    <div class="whole-calculator">
+        <div class="black">
+            0 
+        </div>
+        <p class="here">no entered data yet</p>
+        <div class="c"><button>c</button></div>
+        <div class="arrow"><button>r</button></div>
+        <div class="devision"><button  >/</button></div>
+        <div class="seven" ><button >7</button></div>
+        <div class="eight"><button>8</button></div>
+        <div class="nine" ><button >9</button></div>
+        <div class="mult"><button>*</button></div>
+        <div class="four" ><button >4</button></div>
+        <div class="five"><button >5</button></div>
+        <div class="six"><button>6</button></div>
+        <div class="minus"><button>-</button></div>
+        <div class="one" ><button >1</button></div>
+        <div class="two" ><button >2</button></div>
+        <div class="three"><button >3</button></div>
+        <div class="plus"><button>+</button></div>
+        <div class="zero1" ><button >0</button></div>
+        <div class="equal"><button>=</button></div>
+    </div>
+
+    
+
+<script>
+    let buffer="0";
+    let firstNumber=0;
+    let secondNumber=0;
+    let op="";
+    let fullstr="";
+    function handlesymbole(symbol){
+          
+       if(symbol=="r"){
+       buffer= buffer.slice(0, -1);
+       if(buffer==''){
+        buffer="0";
+       }
+       return;
+       
+       
+       }else if(symbol=="c"){
+        buffer="0";
+        return;
+
+       }else if(symbol=="="){
+       secondNumber=buffer;
+       if(op==""){
+        alert("please enter a correct operation to handle");
+        return;
+       }
+         buffer=calculate(parseInt(firstNumber),op,parseInt(secondNumber));
+         
+         return;
+       }else{
+        op="";
+      firstNumber=buffer;
+      op=symbol;
+      buffer=0;
+      return;
+       }
+      
+
+
+    }
+    function calculate(n1,s,n2){
+        if(s=="/"){
+         return n1/n2;
+
+        }else if(s=="*"){
+            return n1*n2;
+        }else if(s=="-"){
+            return n1-n2;
+           }else if(s=="+"){
+            return n1+n2;
+           }
+
+
+    }
+    function handleNumber(number){
+       buffer=="0"?buffer=number:buffer+=number;
+
+    }
+    function buttonCLicked(event){
+        isNaN(parseInt(event))? handlesymbole(event):handleNumber(event);
+        rerender();
+
+
+    }
+function init(){
+ document.querySelector(".whole-calculator")
+  .addEventListener("click",function(event){
+    buttonCLicked(event.target.innerText);
+            
+         if(event.target.innerText!=="c" && event.target.innerText!=="r" ){
+
+         if(document.querySelector(".here").innerText=="no entered data yet"){
+            document.querySelector(".here").innerText="";
+         }
+         fullstr+=event.target.innerText;
+         document.querySelector(".here").innerText+=fullstr;
+         fullstr="";
+    }else if(event.target.innerText=="c" ){
+        document.querySelector(".here").innerText="";
+        fullstr="";
+    }
+if(event.target.innerText=="r" ){
+    document.querySelector(".here").innerText=document.querySelector(".here").innerText.slice(0,-1); 
+}
+if(event.target.innerText=="=" ){
+    document.querySelector(".here").innerText+=buffer; 
+}
+   
+
+  })
+ }
+ function rerender(){
+    document.querySelector(".black").innerText=buffer;
+
+ }
+ init();
+ </script>
+ </body>
+
+</html>

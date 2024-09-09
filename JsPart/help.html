@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        .black {
+            background-color: #000000;
+            color: white;
+            padding: 10px;
+            width: 200px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        button {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="black">
+        <button>0</button>
+    </div>
+    <button onclick="write(1)">1</button>
+    <button onclick="write(2)">2</button>
+    
+    <script>
+        function write(number) {
+            document.querySelector(".black > button").innerText = number;
+        }
+    </script>
+</body>
+</html>

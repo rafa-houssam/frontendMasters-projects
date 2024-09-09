@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.parent{
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+            width: 270px;
+            background-color: #fbfbfb;
+            padding-right: 0px;
+            /* margin-top: 200px; */
+        }
+        div.child{
+            font-family: Arial, Helvetica, sans-serif;
+            height: 40px;
+            width: 40px;
+            background-color: #fffdfd;
+            margin: 5px;
+            border:2px rgb(87, 86, 86) solid;
+            justify-content: center;
+            align-content: center; 
+            font-weight:900 ;
+            text-align: center;
+            font-size: xx-large;
+        }
+        .inp{
+            width: 100%;
+            height: 100%;
+        }
+        .spinner{
+           animation: turn 2s infinite linear;
+           display: inline-block; /* Make sure the spinner does not take up the full width */
+         font-size: 2rem; /* Adjust size as needed */
+         margin-left: 100px;
+        }
+        @keyframes turn{
+            from {
+        transform: rotate(0deg); /* Start at 0 degrees */
+    }
+    to {
+        transform: rotate(360deg); /* Rotate to 360 degrees */
+    }
+        }
+        h1{
+            animation: 3s rainbow linear infinite;
+        }
+        @keyframes rainbow{
+            0%{color: red;}
+            20%{color: rgb(22, 251, 71);}
+            40%{color: rgb(38, 17, 233);}
+            50%{color: rgb(243, 31, 204);}
+           70%{color: rgb(255, 255, 19);}
+            90%{color: rgb(17, 242, 204);}
+            100%{color: rgb(113, 13, 220);}
+        }
+        header{
+            margin-left: 450px ;
+            margin-top: 300px;
+        }
+        .hidden{
+            visibility: hidden;
+        }
+        
+        
+        .grey{
+            animation: greyflash 2s linear infinite;
+            background-color: rgb(166, 169, 166);
+
+        }
+        @keyframes greyflash{
+            from{
+               background-color: #8b8888;
+            }
+            to{
+            background-color: rgb(131, 134, 131);
+            }
+        }
+        .yellow{
+            animation: yellowflash 2s linear infinite;
+            background-color: rgb(220, 242, 24);
+
+        }
+        @keyframes yellowflash{
+            from{
+               background-color: #f1df7d;
+            }
+            to{
+            background-color: rgb(238, 230, 65);
+            }
+        }
+        .green{
+            animation: greenflash 2s linear infinite;
+            background-color: green;
+
+        }
+        @keyframes greenflash{
+            from{
+               background-color: #22ea4a;
+            }
+            to{
+            background-color: rgb(12, 245, 12);
+            }
+        }
+        .red{
+            animation: redflash 1s ;
+           
+
+        }
+        @keyframes redflash{
+            from{
+               background-color: #ffffff;
+            }
+            to{
+            background-color: rgb(255, 0, 0);
+            }
+        }
+       
+    </style>
+</head>
+<body>
+    <header><h1>wordy masters</h1>
+    <div class="spinner">💫</div></header>
+    
+    <div class="parent">
+        <div class="child letter-1"></div>
+        <div class="child letter-2"></div>
+        <div class="child letter-3"></div>
+        <div class="child letter-4"></div>
+        <div class="child letter-5"></div>
+        <div class="child letter-6"></div>
+        <div class="child letter-7"></div>
+        <div class="child letter-8"></div>
+        <div class="child letter-9"></div>
+        <div class="child letter-10"></div>
+        <div class="child letter-11"></div>
+        <div class="child letter-12"></div>
+        <div class="child letter-13"></div>
+        <div class="child letter-14"></div>
+        <div class="child letter-15"></div>
+        <div class="child letter-16"></div>
+        <div class="child letter-17"></div>
+        <div class="child letter-18"></div>
+        <div class="child letter-19"></div>
+        <div class="child letter-20"></div>
+        <div class="child letter-21"></div>
+        <div class="child letter-22"></div>
+        <div class="child letter-23"></div>
+        <div class="child letter-24"></div>
+        <div class="child letter-25"></div>
+        <div class="child letter-26"></div>
+        <div class="child letter-27"></div>
+        <div class="child letter-28"></div>
+        <div class="child letter-29"></div>
+        <div class="child letter-30"></div>
+
+        
+    </div>
+    <script>
+        let win=false;
+        let lose=false;
+        let currentGuess="";
+        const LENGTH=5;
+        const letters=document.querySelectorAll(".child");
+        const loadingDiv=document.querySelector(".spinner");
+        currentRow=0;
+        
+         async function init(){
+            let resobj=await fetch("https://words.dev-apis.com/word-of-the-day?random=1");
+            let {word}= await resobj.json();
+            setLoading(false);
+            function addLetter(letter){
+                
+            if(currentGuess.length<LENGTH){
+                currentGuess+=letter;
+            }else{
+                currentGuess=currentGuess.substring(0,currentGuess.length-1)+letter;
+
+            }
+            letters[LENGTH*currentRow+currentGuess.length-1].innerText=letter;
+
+        }
+
+        async function commit(){
+            if(currentGuess.length<LENGTH){
+                return;
+            }
+            
+            else if(currentGuess.length===LENGTH)
+            { result();
+             }
+           
+             
+    
+        }
+       
+            
+            
+           
+
+    
+        
+       function setLoading(isloading){
+        document.querySelector(".spinner").classList.toggle('hidden',!isloading);
+            
+
+        }
+        function noOtherHaveGreen(letter){
+            for(let i=0;i<currentGuess.split("").length;i++){
+               
+                    if(document.querySelector(`.letter-${currentRow*LENGTH+i+1}`).classList.contains("green") && document.querySelector(`.letter-${currentRow*LENGTH+i+1}`).innerText===letter){
+                        return false;
+
+                 
+            }
+            }
+            return true;
+        }
+        async  function result(){
+            let numberOfMatches=0;
+            
+            let guessedWord=currentGuess.split("");
+            let correctWord=word.toUpperCase().split("");
+            const res2=await fetch("https://words.dev-apis.com/validate-word",{
+              method:"POST",
+              body:JSON.stringify({word: currentGuess})
+            });
+            const resobj2=await res2.json();
+            const {validWord}=resobj2;
+           
+            if(validWord){ 
+                for(let i=0;i<guessedWord.length;i++){
+            for (let i2=0;i2<correctWord.length;i2++){
+                if(guessedWord[i]===correctWord[i2] && i==i2){
+                    document.querySelector(`.letter-${currentRow*LENGTH+i+1}`).classList.add("green");
+                    numberOfMatches++;
+
+                }
+                else if (guessedWord[i]===correctWord[i2] && noOtherHaveGreen(guessedWord[i])){
+                    document.querySelector(`.letter-${currentRow*LENGTH+i+1}`).classList.add("yellow");
+
+                }
+                else{
+                    document.querySelector(`.letter-${currentRow*LENGTH+i+1}`).classList.add("grey");
+                }
+
+               
+
+                }
+            }
+            for(let i=0;i<guessedWord.length;i++){
+                if(!noOtherHaveGreen(guessedWord[i])){
+                    document.querySelector(`.letter-${currentRow*LENGTH+i+1}`).classList.add("grey");
+                    document.querySelector(`.letter-${currentRow*LENGTH+i+1}`).classList.remove("yellow");
+                }
+            }
+
+
+            if (numberOfMatches===5){
+                alert("congratulations you win");
+                win=true;
+
+            }
+            if(currentRow===5 && win===false){
+                lose=true;
+                alert(`You lose the word was ${word}`);
+            }}else{
+                alert("please try another valide word");
+
+                for (let i=0;i<correctWord.length;i++){
+            
+                    document.querySelector(`.letter-${(currentRow)*LENGTH+i+1}`).classList.add("red");
+
+                }
+                setTimeout(function(){
+                    let i=0;
+                    document.querySelector(`.letter-${(currentRow)*LENGTH+i+1}`).classList.remove("red");
+                    i++;
+                },10)
+
+               
+            }
+            
+            currentRow++;
+            currentGuess="";
+        }
+
+        function handleBackspace(){
+            currentGuess=currentGuess.substring(0,currentGuess.length-1);
+            letters[LENGTH*currentRow+currentGuess.length].innerText="";
+
+        }
+        function isLetter(letter) {
+           return /^[a-zA-Z]$/.test(letter);
+              }
+              
+            document.addEventListener("keydown",function keypress(event){
+                if(lose || win){
+                    //do nothing
+                    return;
+                }
+                action=event.key;
+                switch(action) {
+    case "Enter":
+        commit();
+        break;
+    case "Backspace":
+        handleBackspace();
+        break;
+    default:
+        if (isLetter(action)) {
+            addLetter(action.toUpperCase());
+        }
+        // else do nothing
+        break;
+}
+
+            })
+        }
+        init();
+        
+
+    </script>
+</body>
+</html>
