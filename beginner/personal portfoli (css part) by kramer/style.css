@@ -1,0 +1,282 @@
+
+/* :root{
+    /* --exampleofcolor: #4016b4; */
+    /* just declaring new variables */
+ 
+body{
+   
+   font-family: "Merriweather";
+   background-color: #0d314b;
+   box-sizing: border-box;
+   color: white;
+   margin: 0;
+   padding: 0;
+
+}
+.resume{
+    font-weight: bold;
+    color: white;
+}
+.name{
+    color: aqua;
+    font-size: xx-large;
+    display: block;
+    font-family: monospace;
+
+}
+
+.function{
+    font-size: 26px;
+}
+.link{
+    
+    color: rgb(215, 0, 239);
+    font-weight: bolder;
+}
+.link:hover{
+    color: rgb(220, 53, 238);
+    text-decoration: none;
+}
+.content{
+    margin: 0 auto;
+    text-wrap: wrap;
+    width: 400px;
+    text-align: center;
+   background-color: #0d204b;
+    min-width: 100px;
+
+
+}
+.contactme {
+    text-align: center;
+   
+    background-color: #0d204b;
+    line-height: 2rem;
+    padding-bottom: 60px;
+
+
+
+}
+.title{
+    font-weight: bolder;
+   background-color: #0d204b;
+    
+}
+.emailme{
+    background-color: #d92bdf;
+    text-align: center;
+    color: white;
+    font-family: monospace;
+    margin-top: 1.5rem;
+    padding: 10px;
+    border-radius:5px ;
+
+   
+
+}
+.list{
+    display: flex;
+    background-color: #0d314b;
+    border-bottom: 1px solid rgb(12, 175, 234);
+}
+.magic {
+    height: 2px;
+    background: linear-gradient(to bottom, aqua, transparent);
+    box-shadow: 0px 4px 10px rgba(0, 255, 255, 1); /* Creates a blur effect */
+}
+.magic2 {
+    height: 2px;
+    background: linear-gradient(to bottom, aqua, transparent);
+    box-shadow: 0px 4px 10px rgba(0, 255, 255, 1); /* Creates a stronger blur effect */
+}
+.magict {
+    width: 250px;
+    height: 2px;
+    background: linear-gradient(to bottom, aqua, transparent);
+    box-shadow: 0px 4px 10px rgba(0, 255, 255, 1); /* Creates a stronger blur effect */
+    margin-bottom: 20px;
+}
+
+
+.redmagic {
+    height: 2px;
+    background: linear-gradient(to bottom, rgb(237, 64, 199), transparent);
+    box-shadow: 0px 6px 14px rgba(226, 60, 217, 0.5); /* Creates a blur effect */
+}
+
+.realist,.footerlist{
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: #0d314b;
+    gap: 3rem;
+    
+}
+.footerlist li:last-child{
+    margin-right: 60px;;
+}
+ .heade li,.heade a,footer a{
+    color: white;
+    text-decoration: none;
+}
+li a:hover{
+    color: #1ae3f1;
+}
+.heade,footer{
+    background-color: #0d314b;
+    margin-bottom: 30px;
+    padding: 20px;
+    
+}
+.fa-solid{
+    color: white;
+}
+.realist li:first-child{
+   flex-basis: 100%;
+   color: aqua;
+   text-align: center;
+}
+.heade [class*="fa-"]{  /*start with fa */
+   font-size: larger;
+}
+.margin{
+    margin-right: 10px;
+}
+.button{
+    border: none;
+    padding: 5px;
+    background-color: #eb1ff5;
+    font-family: monospace;
+    font-size: larger;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.button:hover{
+    color: aliceblue;
+     background-color: #f45bff;
+}
+@media(min-width:850px){
+    .heade{
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .realist li:first-child{
+        flex-basis: auto;
+        margin-right: auto;
+     }
+     .button{
+        margin-right: 50px;
+     }
+
+}
+.rafa,.last {
+    margin: 0 auto; 
+    text-align: center;
+  }
+  .footerlist li{
+    font-size: xx-large;
+  }
+  
+  .last{
+    font-size: x-small;
+  }
+  .heade,#intro{
+    padding: 0rem 0rem 6rem 0rem;
+    background-color: #05375a;
+
+  }
+  html, body {
+    overflow-x: hidden;
+}
+.space{
+    margin-bottom: 40px;
+}
+footer{
+    margin-bottom: 0px;
+    margin-top: 30px;
+}
+.resume{
+    padding: 20px;
+}
+.txt{
+    background-color: #4b0d49;
+    width: 30%;
+    padding: 20px;
+    border-radius: 10px;
+
+}
+.text1,.text2,.text3{
+    /* margin-left: 700px; */
+    text-align: center;
+    align-content: center;
+    line-height: 2.5;
+    margin-top: 20px;
+    box-shadow: 0px -4px 10px rgb(93, 27, 113); /* Creates a blur effect */
+    min-width: 200px;
+}
+
+img{
+    height: 240px;
+    border-radius: 10px;
+    width:110% ;
+}
+.first,.second,.third{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-right: 30px;
+    margin-left: 30px;
+    padding: 20px;
+}
+@media(min-width:600px){
+    .first,.second,.third{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        margin-right: 30px;
+        margin-left: 30px;
+    }
+}
+
+.title1{
+    text-align: center;
+}
+.check1,.check2,.check3{
+    text-align: center;
+    align-content:center;
+    width: 30%;
+    padding: 20px;
+    min-width: 200px;
+}
+.projects a{
+    color: #d92bdf;
+    font-weight: bolder;
+}
+.projects a:hover{
+    text-decoration: none;
+}
+
+.projects{
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.projects h2{
+    color: #1ae3f1;
+         
+}
+footer{
+   padding: 20px;
+
+}
+.we{
+    padding: 20px;
+    line-height: 1.5;
+    width: 100%;
+}
+.houssam{
+    background-color: #3c0d4a;
+}
